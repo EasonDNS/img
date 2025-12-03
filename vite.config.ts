@@ -1,9 +1,9 @@
-import {defineConfig} from 'vite'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import {fileURLToPath} from 'node:url'
+import { fileURLToPath } from 'node:url'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers' // https://vite.dev/config/
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -28,6 +28,14 @@ export default defineConfig({
         target: 'http://152.136.185.210:5000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+        additionalData: '@import "@/styles/variables.less";'
       }
     }
   }
