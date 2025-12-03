@@ -1,11 +1,11 @@
 <template>
   <div class="asideView">
-    <div class="asideControl">
-      <span @click="handleCollapse">good</span>
+    <div class="asideControl" @click="handleCollapse">
+      <el-icon size="50px"><Menu /></el-icon>
+      <span v-if="!isCollapse">导航</span>
     </div>
 
     <el-menu
-      class="el-menu-vertical-demo"
       mode="vertical"
       :default-active="defaultActive"
       :default-openeds="defaultOpen"
@@ -13,7 +13,7 @@
       :unique-opened="true"
       :close-on-click-outside="true"
       :collapse="isCollapse"
-      :popper-class="test"
+      active-text-color="#ffd04b"
     >
       <template v-for="item in asideConfig" :key="item.name">
         <template v-if="item.children">
@@ -62,33 +62,52 @@
 <script lang="ts" setup>
 import { asideConfig } from './config'
 import { ref } from 'vue'
+import { usePublicStore } from '@/stores'
 
 const defaultActive = ref('/')
 const defaultOpen = ref(['/nas'])
 const isCollapse = ref(false)
-
+const publicStore = usePublicStore()
 const handleCollapse = () => {
-  console.log('handleCollapse')
-  isCollapse.value = !isCollapse.value
+  publicStore.isExpand = !publicStore.isExpand
+  isCollapse.value = !publicStore.isExpand
 }
 
 const expandOpenIcon = 'Minus'
 const expandCloseIcon = 'Plus'
-// const i = ref(1)
-// const b = 'share'
-// const currentIconComponent = b
-
-// const iconSize = ref('20px')
 </script>
 <style lang="less" scoped>
 .asideView {
   .asideControl {
     height: 50px;
-  }
-  .el-menu-vertical-demo {
-    .test {
-      font-size: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .el-icon {
+      //margin-right: 10px;
     }
+    span {
+      margin-left: 10px;
+    }
+  }
+  .el-menu {
+    // 菜单背景颜色
+    //--el-menu-bg-color: rgba(29, 30, 31, 0.8);
+    //--el-menu-bg-color: #409eff;
+    //菜单的文字颜色
+
+    //--el-menu-text-color: #303133;
+    //--el-menu-text-color: red;
+    // 活动菜单项的文本颜色
+    //--el-menu-active-color: #0aa624;
+    //--el-menu-active-bg-color: rgba(23, 121, 218, 0.8);
+    //--el-menu-active-color: #409eff !important;
   }
 }
 </style>
+<!--<style>-->
+<!--:root {-->
+<!--  &#45;&#45;el-menu-active-color: #064417;-->
+<!--}-->
+<!--</style>-->

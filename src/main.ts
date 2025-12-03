@@ -1,7 +1,7 @@
+import 'element-plus/dist/index.css'
 import { createApp } from 'vue'
 import '@/styles/index.less'
 import App from './App.vue'
-import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 import ElementPlus from 'element-plus'
