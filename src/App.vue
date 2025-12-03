@@ -1,30 +1,39 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router'
+import { ref } from 'vue'
+import { ElConfigProvider } from 'element-plus'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+
+const size = ref<'' | 'default' | 'small' | 'large'>('small')
+const zIndex = ref(3000)
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <el-config-provider :size="size" :z-index="zIndex" :locale="zhCn">
+    <router-view v-slot="{ Component }">
+      <transition
+        mode="out-in"
+        enter-active-class="animate__animated animate__backInLeft"
+        leave-active-class="animate__animated animate__backOutRight"
+      >
+        <component :is="Component"></component>
+      </transition>
+    </router-view>
+  </el-config-provider>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+<style lang="less">
+html,
+body {
+  height: 100%;
+  width: 100%;
+  //background-color: #fff;
+
+  #app {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    //background-color: rosybrown;
+  }
 }
 </style>
