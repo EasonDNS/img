@@ -1,12 +1,11 @@
 <template>
   <div class="main">
     <el-container class="m-el-aside">
-      <el-aside :width="publicStore.isExpand ? '240px' : '64px'">
+      <el-aside :width="publicStore.isExpand ? '200px' : '64px'">
         <el-scrollbar>
           <aside-view> </aside-view>
         </el-scrollbar>
       </el-aside>
-
       <el-container>
         <el-header>
           <head-view> </head-view>
@@ -64,7 +63,7 @@ onMounted(() => {
   .el-aside {
     margin: 16px 5px 16px 16px;
     border-radius: 5px;
-    background-color: rgba(29, 30, 31);
+    background-color: rgba(29, 30, 31, 0.8);
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.75);
     transition: all 300ms ease;
   }

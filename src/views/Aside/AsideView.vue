@@ -1,7 +1,7 @@
 <template>
   <div class="asideView">
     <div class="asideControl" @click="handleCollapse">
-      <el-icon size="50px"><Menu /></el-icon>
+      <el-icon size="40px"><Menu /></el-icon>
       <span v-if="!isCollapse">导航</span>
     </div>
 
@@ -13,7 +13,6 @@
       :unique-opened="true"
       :close-on-click-outside="true"
       :collapse="isCollapse"
-      active-text-color="#ffd04b"
     >
       <template v-for="item in asideConfig" :key="item.name">
         <template v-if="item.children">
@@ -92,22 +91,8 @@ const expandCloseIcon = 'Plus'
     }
   }
   .el-menu {
-    // 菜单背景颜色
-    //--el-menu-bg-color: rgba(29, 30, 31, 0.8);
-    //--el-menu-bg-color: #409eff;
-    //菜单的文字颜色
-
-    //--el-menu-text-color: #303133;
-    //--el-menu-text-color: red;
-    // 活动菜单项的文本颜色
-    //--el-menu-active-color: #0aa624;
-    //--el-menu-active-bg-color: rgba(23, 121, 218, 0.8);
-    //--el-menu-active-color: #409eff !important;
+    //这默认有个0.85px的边框需要去除
+    border-right: none;
   }
 }
 </style>
-<!--<style>-->
-<!--:root {-->
-<!--  &#45;&#45;el-menu-active-color: #064417;-->
-<!--}-->
-<!--</style>-->

@@ -1,13 +1,13 @@
 import 'element-plus/dist/index.css'
 import { createApp } from 'vue'
-import '@/styles/index.less'
+
 import App from './App.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-
 import ElementPlus from 'element-plus'
 import router from './router'
 import { createPinia } from 'pinia'
 
+import('@/styles/reset.less')
 const app = createApp(App)
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {

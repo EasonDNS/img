@@ -27,8 +27,6 @@ html,
 body {
   height: 100%;
   width: 100%;
-  //background-color: #fff;
-
   #app {
     display: flex;
     width: 100%;
