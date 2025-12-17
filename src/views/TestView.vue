@@ -9,9 +9,10 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import LabelItem from '@/components/LabelItemComponent.vue'
-import { labels } from '../assets/doc/label.ts'
+import { labels } from '../../public/doc/label.ts'
+
 const tabs = ref(labels)
 </script>
 <style lang="less" scoped>

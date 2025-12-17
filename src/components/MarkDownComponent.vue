@@ -9,10 +9,10 @@
 import { onMounted, ref } from 'vue'
 import { markedHighlight } from 'marked-highlight'
 import { Marked } from 'marked'
-import hljs from 'highlight.js'
+import hljs from 'highlight.js' // ?raw 是 Vite 的用法，用于导入原始 .md 文件内容 ✅
+import defaultMarkdown from '../../public/doc/markDown.md?raw'
+
 const hljsCss = import('@/assets/CSS/atom-one-dark.css')
-// ?raw 是 Vite 的用法，用于导入原始 .md 文件内容 ✅
-import defaultMarkdown from '../assets/doc/markDown.md?raw'
 //-----------------------------------------------------
 const props = withDefaults(
   defineProps<{
