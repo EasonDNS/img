@@ -8,6 +8,7 @@
       "path": "./tsconfig.node.json"
     }
   ],
+
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -15,5 +16,14 @@
     "paths": {
       "@/*": ["src/*"]
     }
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules",
+    "src/base/cache/*",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
 }

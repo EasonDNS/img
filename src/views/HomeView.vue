@@ -75,7 +75,8 @@ onMounted(() => {
     .main-content {
       width: 100%;
       box-sizing: border-box;
-      background-color: rgba(29, 30, 31, 0.9);
+      //background-color: rgba(29, 30, 31, 0.9);
+      background-color: #fff;
       padding: 20px 20px;
       border-radius: 10px;
       box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.75);

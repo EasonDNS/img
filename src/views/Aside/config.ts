@@ -1,4 +1,5 @@
 import type { InterFace_AsideView } from './type.ts'
+
 const asideConfig: InterFace_AsideView[] = [
   {
     name: 'DOC',
@@ -12,12 +13,12 @@ const asideConfig: InterFace_AsideView[] = [
     children: [
       {
         name: 'file',
-        url: '/file',
+        url: '/nas/file',
         iconName: 'Folder'
       },
       {
         name: 'webDav',
-        url: '/webDav',
+        url: '/nas/webDav',
         iconName: 'Box'
       }
     ]
@@ -29,12 +30,12 @@ const asideConfig: InterFace_AsideView[] = [
     children: [
       {
         name: 'file',
-        url: '/file',
+        url: '/tools//file',
         iconName: 'Folder'
       },
       {
         name: 'webDav',
-        url: '/webDav',
+        url: '/tools//webDav',
         iconName: 'Box'
       }
     ]
