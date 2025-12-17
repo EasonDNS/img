@@ -11,6 +11,11 @@
     "erasableSyntaxOnly": true,
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "moduleResolution": "bundler"
   }
 }
