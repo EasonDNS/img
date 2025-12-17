@@ -10,29 +10,7 @@
   ],
 
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
     "composite": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
-  },
-  "include": [
-    "src/**/*",
-    "env.d.ts",
-    "src/**/*.ts",
-    "src/**/*.vue",
-    "src/**/*.d.ts",
-    "src/**/*.tsx"
-  ],
-
-  "exclude": [
-    "node_modules",
-    "src/base/cache/*",
-    "**/*.spec.ts",
-    "**/*.spec.tsx",
-    "**/*.test.ts",
-    "**/*.test.tsx"
-  ]
+    "moduleResolution": "bundler"
+  }
 }
