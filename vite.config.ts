@@ -15,6 +15,11 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()]
     })
   ],
+  build: {
+    rolldownOptions: {
+      external: (id) => id.includes('./src/base/cache')
+    }
+  },
   resolve: {
     alias: {
       //这是最新推荐使用
