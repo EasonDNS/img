@@ -1,3 +1,3 @@
-import { jxlsaxios } from '@/services/axios'
+import { jxlsAxios } from './axios'
 
-export { jxlsaxios }
+export { jxlsAxios }

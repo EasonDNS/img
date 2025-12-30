@@ -9,9 +9,9 @@ const routes = [
     // component: TestView,
     children: [
       {
-        path: 'doc',
-        name: 'docView',
-        component: () => import('@/views/DocView.vue')
+        path: 'navigation',
+        name: 'navigationView',
+        component: () => import('@/views/navigationView.vue')
       }
     ]
   },

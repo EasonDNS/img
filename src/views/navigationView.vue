@@ -5,9 +5,19 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 // import { JLoader } from '@/base
 import { JLoader } from '@/base/JxlsLoader/index.ts'
+
+import { useNavigationStore } from '@/stores'
+
+onMounted(async () => {
+  console.log('navigationView')
+  const navigationStore = useNavigationStore()
+  const data = await navigationStore.getAll()
+  console.log('data')
+  console.log(data)
+})
 
 const bgc = ref('orangered')
 </script>

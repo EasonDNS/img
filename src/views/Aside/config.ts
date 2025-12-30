@@ -2,8 +2,8 @@ import type { InterFace_AsideView } from './type.ts'
 
 const asideConfig: InterFace_AsideView[] = [
   {
-    name: 'DOC',
-    url: '/DOC',
+    name: 'navigation',
+    url: '/navigation',
     iconName: 'ChatLineSquare'
   },
   {
