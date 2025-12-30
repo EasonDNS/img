@@ -54,6 +54,6 @@ class Request {
 }
 
 export default new Request({
-  baseURL: import.meta.env.VITE_BASE_URL,
+  baseURL: '/api',
   timeout: 10000
 })
