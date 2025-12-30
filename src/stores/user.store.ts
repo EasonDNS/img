@@ -6,7 +6,6 @@ const useUserStore = defineStore('userStore', {
       id: 1,
       name: '',
       email: '',
-
       password: ''
     }
   },

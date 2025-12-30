@@ -1,11 +1,13 @@
 import { defineStore } from 'pinia'
+import type { IPublicStoreType } from './IStoreType.ts'
 
 const usePublicStore = defineStore('public', {
-  state: () => ({
+  state: (): IPublicStoreType => ({
     isExpand: true,
     isShowBubble: true,
-    asideWidth: 300
+    asideWidth: 300,
+    token: ''
   })
 })
 
-export default usePublicStore
+export { usePublicStore }
