@@ -63,8 +63,8 @@ import { asideConfig } from './config'
 import { ref } from 'vue'
 import { usePublicStore } from '@/stores'
 
-const defaultActive = ref('/')
-const defaultOpen = ref(['/nas'])
+const defaultActive = ref('/navigation')
+const defaultOpen = ref(['/navigation'])
 const isCollapse = ref(false)
 const publicStore = usePublicStore()
 const handleCollapse = () => {

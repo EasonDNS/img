@@ -1,21 +1,35 @@
 import { defineStore } from 'pinia'
 import { jxlsAxios } from '@/services'
+import type { INavigationMenuType, INavigationStateType, IResponseType } from './IStoreType.ts'
 
-const useNavigationStore = defineStore('navigatorStore', {
-  state: () => {
+const useNavigationStore = defineStore('navigationStore', {
+  // 这里限制 了state的格式 --------------------------------------------------------------------------------------
+  state(): INavigationStateType {
     return {
-      id: 1,
-      name: ''
+      navigationMenu: []
     }
   },
   actions: {
-    async getAll() {
-      const one = await import.meta.env.VITE_BASE_URL
-      console.log('getAll', one)
-      await jxlsAxios.get('/navigation').then((res) => {
-        console.log(res)
+    async getMenuList() {
+      try {
+        const res: IResponseType = await jxlsAxios.get('/navigation')
+        // console.log('----------------services------------------getAll---------------')
+        res.data.forEach((item: INavigationMenuType) => {
+          this.navigationMenu.push(item)
+        })
+
         return res
+      } catch (err) {
+        throw err
+      }
+    },
+    async test() {
+      const res = await jxlsAxios.post('/navigation/test', {
+        name: 'test'
       })
+      console.log(res)
+      console.log('----------------services------------------test---------------')
+      return res
     }
   }
 })

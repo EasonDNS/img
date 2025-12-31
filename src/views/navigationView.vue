@@ -1,25 +1,29 @@
 <template>
   <div class="label-navigation">
-    <j-loader :bgc="bgc"></j-loader>
+    <jxls-item></jxls-item>
+    <div class="test">
+      <!--      <el-button type="danger" @click="test"> test </el-button>-->
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
-// import { JLoader } from '@/base
-import { JLoader } from '@/base/JxlsLoader/index.ts'
-
+import { onMounted } from 'vue'
 import { useNavigationStore } from '@/stores'
-
+import { JxlsItem } from '@/base'
+// import--------------------------------------------------------------------------------------
+// onMounted --------------------------------------------------------------------------------------
+const navigationStore = useNavigationStore()
 onMounted(async () => {
-  console.log('navigationView')
-  const navigationStore = useNavigationStore()
-  const data = await navigationStore.getAll()
-  console.log('data')
-  console.log(data)
+  await navigationStore.getMenuList()
 })
-
-const bgc = ref('orangered')
+// handle--------------------------------------------------------------------------------------
+const test = async () => {
+  const a = navigationStore.navigationMenu
+  a.forEach((item) => {
+    console.log('item', item.name)
+  })
+}
 </script>
 <style lang="less" scoped>
 .label-navigation {

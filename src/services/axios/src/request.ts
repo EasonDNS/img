@@ -33,6 +33,7 @@ class Request {
         console.log('需要重新登陆')
         return Promise.reject(new Error(res.message))
       }
+      return res
     })
   }
 
