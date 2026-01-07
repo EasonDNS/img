@@ -27,6 +27,7 @@ const test = async () => {
 </script>
 <style lang="less" scoped>
 .label-navigation {
+  background-color: rebeccapurple;
   .content {
     width: 80%;
     //background-color: orange;
@@ -38,7 +39,7 @@ const test = async () => {
     .item {
       //width: 200px;
       //height: 200px;
-      background-color: orangered;
+      //background-color: orangered;
       margin: 10px;
     }
   }

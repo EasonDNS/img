@@ -37,7 +37,7 @@ const setTheme = (themePath?: string) => {
   const existing = document.getElementById('hljs-theme')
 
   if (existing) {
-    existing.href = href
+    ;(existing as HTMLAnchorElement).href = href
   } else {
     const link = document.createElement('link')
     link.id = id
@@ -61,7 +61,7 @@ const marked = new Marked(
 markdown.value = marked.parse(props.codeData)
 
 //-----------------------------------------------------
-const changeTheme = async () => {
+const changeTheme = async (newContent: any) => {
   console.log('changeTheme()')
   markdown.value = marked.parse(newContent)
 }

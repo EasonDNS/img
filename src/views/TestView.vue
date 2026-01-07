@@ -11,9 +11,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import LabelItem from '@/components/LabelItemComponent.vue'
-import { labels } from '../../public/doc/label.ts'
 
-const tabs = ref(labels)
+const tabs = ref([{ name: 'google', icon: 'google', url: 'https://www.google.com' }])
 </script>
 <style lang="less" scoped>
 .label-navigation {

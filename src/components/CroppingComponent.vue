@@ -51,8 +51,8 @@ import { nextTick, onMounted, ref } from 'vue'
 
 const imgUrl = ref('/one.jpg')
 const elButtonSize = ref<'large' | 'default' | 'small'>('large')
-const typePlain = <'primary' | 'success' | 'warning' | 'danger' | 'info' | ''>'info'
-
+type TypePlain = 'primary' | 'success' | 'warning' | 'danger' | 'info' | ''
+const typePlain: TypePlain = 'primary'
 const preUrl = ref('')
 // 定义一个Cropper 实例
 const cropper = ref<Cropper | null>(null)
@@ -62,7 +62,7 @@ const initTransform = ref<number | number[]>([])
 const imgRef = ref()
 //
 
-const changePreUrl = async (e) => {
+const changePreUrl = async (e: any) => {
   const c = await e.target.$toCanvas()
   preUrl.value = c.toDataURL() ?? ''
 }

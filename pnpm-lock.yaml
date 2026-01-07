@@ -17,6 +17,9 @@ importers:
       axios:
         specifier: ^1.13.2
         version: 1.13.2
+      cropperjs:
+        specifier: ^2.1.0
+        version: 2.1.0
       dotenv:
         specifier: ^17.2.3
         version: 17.2.3
@@ -26,6 +29,15 @@ importers:
       element-plus:
         specifier: ^2.11.5
         version: 2.11.5(vue@3.5.22(typescript@5.9.3))
+      highlight.js:
+        specifier: ^11.11.1
+        version: 11.11.1
+      marked:
+        specifier: ^17.0.1
+        version: 17.0.1
+      marked-highlight:
+        specifier: ^2.2.3
+        version: 2.2.3(marked@17.0.1)
       normalize.css:
         specifier: ^8.0.1
         version: 8.0.1
@@ -35,6 +47,9 @@ importers:
       vue:
         specifier: ^3.5.22
         version: 3.5.22(typescript@5.9.3)
+      vue-draggable-next:
+        specifier: ^2.3.0
+        version: 2.3.0(sortablejs@1.15.6)(vue@3.5.22(typescript@5.9.3))
       vue-router:
         specifier: ^4.6.3
         version: 4.6.3(vue@3.5.22(typescript@5.9.3))
@@ -109,6 +124,39 @@ packages:
   '@babel/types@7.28.4':
     resolution: {integrity: sha512-bkFqkLhh3pMBUQQkpVgWDWq/lqzc2678eUyDlTBhRqhCHFguYYGM0Efga7tYk4TogG/3x0EEl66/OQ+WGbWB/Q==}
     engines: {node: '>=6.9.0'}
+
+  '@cropper/element-canvas@2.1.0':
+    resolution: {integrity: sha512-el+rfJpZxsD2q5XxDBA4fRczcrOqB65Lb7roqXOq8LKufwf4bPWA9C6DjNJJahh/TP94dsLIEy3tSkgRMDv3Aw==}
+
+  '@cropper/element-crosshair@2.1.0':
+    resolution: {integrity: sha512-0V589dAx8uZAfvJwdINLn76gfPQEafPH94ukjJ76uX0FCUovLaAVX+VRD/MDSYn0Mza/xejzmL9Dhd1DfemvmA==}
+
+  '@cropper/element-grid@2.1.0':
+    resolution: {integrity: sha512-dEnk0rO+vp553LMvsPYgfrqVFcYXeVFrgFeavBYYEhAXtO40p7kN4rmLYLMMjaN+T/Mx2BATv6kUQpALKy2HLw==}
+
+  '@cropper/element-handle@2.1.0':
+    resolution: {integrity: sha512-8BklWA4C/2GGAULupIWleSnGutECvYt3vx9flodqDfZpDEozws4LgLqmmzVuQmVkRVUdLnXdtx28kjgWLtzkHg==}
+
+  '@cropper/element-image@2.1.0':
+    resolution: {integrity: sha512-mXOV8ixJvG0XtTxLebYAKDjEkFbFOQnsF02hXPZk1yQSV0J+LLhN7a2NePrtKnoTsEV19fhhX3UorMoyGGxvzg==}
+
+  '@cropper/element-selection@2.1.0':
+    resolution: {integrity: sha512-mtFtBl6HIa/s9TWohXw+Z5eJoeYTqylrIcHvS7oVv0uM7IyeRwBW65Q7z+KtLfq/LW+2Sw/XDyvR+VN/DawBPw==}
+
+  '@cropper/element-shade@2.1.0':
+    resolution: {integrity: sha512-zMdyqbb0lc0Vd1oj2Z1miIZvhyZG41OXMHvrNt0hNwblh0dVdrvtw48lnFDgRv+672vt2CNx7Q04GuvCQfPlgg==}
+
+  '@cropper/element-viewer@2.1.0':
+    resolution: {integrity: sha512-XnxlQuqHitd1FOFZ6E0yXAF5NYd/LyIvONLLHI9p1rJw747WYKUPxQaSYtFKF7IOizJu/8mMj++Zc1dZ5ZP3YQ==}
+
+  '@cropper/element@2.1.0':
+    resolution: {integrity: sha512-2zELddqHQNmlvkPoiYzE5nxEjPE+C8nXoTPuvV3FvLp3YjBinc7qb73Icg9UXP0o9qC4+h9q96JgGo0AyMO/Ng==}
+
+  '@cropper/elements@2.1.0':
+    resolution: {integrity: sha512-qvzlYDn3VQgPPpsCu6Gi1XUO0v3vpXQFSjjxcVijbXeNsl/eiKrN7H9/CEiRgi5vr8kXfd7ZvgYxBjUBbH+y+w==}
+
+  '@cropper/utils@2.1.0':
+    resolution: {integrity: sha512-wLtpZ4/UWgo+fGmG8NBWge8x5ehjfDe9ovleDfLy8kpwFaw43XXOEXQtRL1UNr0u4JZxaeO8FcXcolRWUUrlRQ==}
 
   '@ctrl/tinycolor@3.6.1':
     resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
@@ -612,6 +660,9 @@ packages:
     resolution: {integrity: sha512-7Vv6asjS4gMOuILabD3l739tsaxFQmC+a7pLZm02zyvs8p977bL3zEgq3yDk5rn9B0PbYgIv++jmHcuUab4RhA==}
     engines: {node: '>=18'}
 
+  cropperjs@2.1.0:
+    resolution: {integrity: sha512-SsSDqdVRl+mjbIBkGWlk1gCGcc+HzBqCbH5EQ+1tkAFUdxq2KUGukXF1RqhmvXrrdrX7PDwSUkWgXS7E36KvGQ==}
+
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
@@ -894,6 +945,10 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
+  highlight.js@11.11.1:
+    resolution: {integrity: sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==}
+    engines: {node: '>=12.0.0'}
+
   hookable@5.5.3:
     resolution: {integrity: sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==}
 
@@ -1072,6 +1127,16 @@ packages:
   make-dir@2.1.0:
     resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==}
     engines: {node: '>=6'}
+
+  marked-highlight@2.2.3:
+    resolution: {integrity: sha512-FCfZRxW/msZAiasCML4isYpxyQWKEEx44vOgdn5Kloae+Qc3q4XR7WjpKKf8oMLk7JP9ZCRd2vhtclJFdwxlWQ==}
+    peerDependencies:
+      marked: '>=4 <18'
+
+  marked@17.0.1:
+    resolution: {integrity: sha512-boeBdiS0ghpWcSwoNm/jJBwdpFaMnZWRzjA6SkUMYb40SVaN1x7mmfGKp0jvexGcx+7y2La5zRZsYFZI6Qpypg==}
+    engines: {node: '>= 20'}
+    hasBin: true
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -1335,6 +1400,9 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
+  sortablejs@1.15.6:
+    resolution: {integrity: sha512-aNfiuwMEpfBM/CN6LY0ibyhxPfPbyFeBTYJKCvzkJ2GkUpazIt3H+QIPAMHwqQ7tMKaHz1Qj+rJJCqljnf4p3A==}
+
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -1465,6 +1533,12 @@ packages:
       '@vue/composition-api':
         optional: true
 
+  vue-draggable-next@2.3.0:
+    resolution: {integrity: sha512-ymbY0UIwfSdg0iDN/iyNNwUrTqZ/6KbPryzsvTNXBLuDCuOBdNijSK8yynNtmiSj6RapTPQfjLGQdJrZkzBd2w==}
+    peerDependencies:
+      sortablejs: ^1.14.0
+      vue: ^3.5.17
+
   vue-eslint-parser@10.2.0:
     resolution: {integrity: sha512-CydUvFOQKD928UzZhTp4pr2vWz1L+H99t7Pkln2QSPdvmURT0MoC4wUccfCnuEaihNsu9aYYyk+bep8rlfkUXw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -1527,6 +1601,72 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
+
+  '@cropper/element-canvas@2.1.0':
+    dependencies:
+      '@cropper/element': 2.1.0
+      '@cropper/utils': 2.1.0
+
+  '@cropper/element-crosshair@2.1.0':
+    dependencies:
+      '@cropper/element': 2.1.0
+      '@cropper/utils': 2.1.0
+
+  '@cropper/element-grid@2.1.0':
+    dependencies:
+      '@cropper/element': 2.1.0
+      '@cropper/utils': 2.1.0
+
+  '@cropper/element-handle@2.1.0':
+    dependencies:
+      '@cropper/element': 2.1.0
+      '@cropper/utils': 2.1.0
+
+  '@cropper/element-image@2.1.0':
+    dependencies:
+      '@cropper/element': 2.1.0
+      '@cropper/element-canvas': 2.1.0
+      '@cropper/utils': 2.1.0
+
+  '@cropper/element-selection@2.1.0':
+    dependencies:
+      '@cropper/element': 2.1.0
+      '@cropper/element-canvas': 2.1.0
+      '@cropper/element-image': 2.1.0
+      '@cropper/utils': 2.1.0
+
+  '@cropper/element-shade@2.1.0':
+    dependencies:
+      '@cropper/element': 2.1.0
+      '@cropper/element-canvas': 2.1.0
+      '@cropper/element-selection': 2.1.0
+      '@cropper/utils': 2.1.0
+
+  '@cropper/element-viewer@2.1.0':
+    dependencies:
+      '@cropper/element': 2.1.0
+      '@cropper/element-canvas': 2.1.0
+      '@cropper/element-image': 2.1.0
+      '@cropper/element-selection': 2.1.0
+      '@cropper/utils': 2.1.0
+
+  '@cropper/element@2.1.0':
+    dependencies:
+      '@cropper/utils': 2.1.0
+
+  '@cropper/elements@2.1.0':
+    dependencies:
+      '@cropper/element': 2.1.0
+      '@cropper/element-canvas': 2.1.0
+      '@cropper/element-crosshair': 2.1.0
+      '@cropper/element-grid': 2.1.0
+      '@cropper/element-handle': 2.1.0
+      '@cropper/element-image': 2.1.0
+      '@cropper/element-selection': 2.1.0
+      '@cropper/element-shade': 2.1.0
+      '@cropper/element-viewer': 2.1.0
+
+  '@cropper/utils@2.1.0': {}
 
   '@ctrl/tinycolor@3.6.1': {}
 
@@ -2078,6 +2218,11 @@ snapshots:
     dependencies:
       is-what: 5.5.0
 
+  cropperjs@2.1.0:
+    dependencies:
+      '@cropper/elements': 2.1.0
+      '@cropper/utils': 2.1.0
+
   cross-spawn@7.0.6:
     dependencies:
       path-key: 3.1.1
@@ -2365,6 +2510,8 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
+  highlight.js@11.11.1: {}
+
   hookable@5.5.3: {}
 
   iconv-lite@0.6.3:
@@ -2515,6 +2662,12 @@ snapshots:
       pify: 4.0.1
       semver: 5.7.2
     optional: true
+
+  marked-highlight@2.2.3(marked@17.0.1):
+    dependencies:
+      marked: 17.0.1
+
+  marked@17.0.1: {}
 
   math-intrinsics@1.1.0: {}
 
@@ -2732,6 +2885,8 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
+  sortablejs@1.15.6: {}
+
   source-map-js@1.2.1: {}
 
   source-map@0.6.1:
@@ -2861,6 +3016,11 @@ snapshots:
 
   vue-demi@0.14.10(vue@3.5.22(typescript@5.9.3)):
     dependencies:
+      vue: 3.5.22(typescript@5.9.3)
+
+  vue-draggable-next@2.3.0(sortablejs@1.15.6)(vue@3.5.22(typescript@5.9.3)):
+    dependencies:
+      sortablejs: 1.15.6
       vue: 3.5.22(typescript@5.9.3)
 
   vue-eslint-parser@10.2.0(eslint@9.38.0):
