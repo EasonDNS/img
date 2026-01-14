@@ -1,46 +1,51 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    name: string
-    url: string
+    name?: string
+    url?: string
     icon?: string
   }>(),
   {
     name: 'Nas',
-    url: 'http://nas.easondns.top',
-    icon: '/down.png'
+    url: 'https://nas.easondns.top',
+    icon: '/public/icon/vite.svg'
   }
 )
 // itemRadius 用来控制这个item Radius
 const itemRadius = ref('5px')
 // 背景图片
-const imgUrl = ref('/down.png')
+// const imgUrl = ref('/public/icon/zcy.jpg')
+
+const imgUrl = ref('http://localhost:3000/public/uploads/one.png')
 const nu = ref('')
-const itemData = computed(() => {
-  return {
-    name: props.name,
-    url: props.url,
-    icon: props.icon
-  }
+const test = () => {
+  console.log(itemData)
+  itemData.value.icon = imgUrl.value
+}
+
+const itemData = ref({
+  name: props.name,
+  url: props.url,
+  icon: props.icon
 })
 </script>
 
 <template>
   <div class="label-item" :style="{ borderRadius: `${itemRadius}` }">
-    <div class="top">
+    <div class="top" @click="test">
       <div
         class="image"
         ref="imageRef"
-        :style="{ backgroundImage: `url(${imgUrl})`, borderRadius: `${itemRadius}` }"
+        :style="{ backgroundImage: `url(${itemData.icon})`, borderRadius: `${itemRadius}` }"
       >
-        <span>{{ props.name }}</span>
+        <!--        <span>{{ itemData.name }}</span>-->
       </div>
     </div>
     <div class="bottom">
       <span>
-        {{ props.name }}
+        {{ itemData.name }}
       </span>
     </div>
   </div>
@@ -54,11 +59,12 @@ const itemData = computed(() => {
   font-size: 20px;
   width: 200px;
   height: 200px;
-  //background-color: #ffffff;
+  background-color: #1081b6;
   cursor: pointer;
-
   border-radius: 5px;
   overflow: hidden;
+  margin-bottom: 10px;
+  margin-left: 10px;
 
   .top {
     width: 100%;
@@ -68,7 +74,9 @@ const itemData = computed(() => {
       width: 100%;
       height: 100%;
       background-position: center;
-      background-size: cover;
+      //background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
   }
   .bottom {
