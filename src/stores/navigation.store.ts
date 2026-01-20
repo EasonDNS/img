@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { jxlsAxios } from '@/services'
+import { nAxios } from '@/services'
 import type { INavigationMenuType, INavigationStateType, IResponseType } from './IStoreType.ts'
 
 const useNavigationStore = defineStore('navigationStore', {
@@ -12,8 +12,7 @@ const useNavigationStore = defineStore('navigationStore', {
   actions: {
     async getMenuList() {
       try {
-        const res: IResponseType = await jxlsAxios.get('/navigation')
-        // console.log('----------------services------------------getAll---------------')
+        const res: IResponseType = await nAxios.get('/')
         res.data.forEach((item: INavigationMenuType) => {
           this.navigationMenu.push(item)
         })
@@ -23,9 +22,18 @@ const useNavigationStore = defineStore('navigationStore', {
         throw err
       }
     },
-    async test() {
-      const res = await jxlsAxios.post('/navigation/test', {
-        name: 'test'
+    // 更新 某列的ids--------------------------------------------------------------------------------------
+    async patchIds(data: any) {
+      console.log(data)
+      const id = data.id
+      const url = `/${id}`
+      const res = await nAxios.patch<any>(url, data)
+      console.log(res)
+    },
+    async test(data: any) {
+      const res = await nAxios.patch('/test', {
+        name: 'test',
+        data
       })
       console.log(res)
       console.log('----------------services------------------test---------------')

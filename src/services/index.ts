@@ -1,3 +1,3 @@
-import { jxlsAxios } from './axios'
+import { nAxios } from './axios'
 
-export { jxlsAxios }
+export { nAxios }

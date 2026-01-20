@@ -49,12 +49,15 @@ class Request {
   put<T = any>(url: string, data?: any) {
     return this.request<T>({ method: 'PUT', url, data })
   }
+  patch<T = any>(url: string, data?: any) {
+    return this.request<T>({ method: 'PATCH', url, data })
+  }
   delete<T = any>(url: string, data?: any) {
     return this.request<T>({ method: 'DELETE', url, data })
   }
 }
-
-export default new Request({
-  baseURL: '/api',
-  timeout: 10000
-})
+export default Request
+// export default new Request({
+//   baseURL: '/api',
+//   timeout: 10000
+// })
