@@ -16,10 +16,7 @@ const props = withDefaults(
 // itemRadius 用来控制这个item Radius
 const itemRadius = ref('5px')
 // 背景图片
-// const imgUrl = ref('/public/icon/zcy.jpg')
-
 const imgUrl = ref('http://localhost:3000/file/uploads/one.png')
-const nu = ref('')
 const test = () => {
   console.log(itemData)
   itemData.value.imgUrl = imgUrl.value

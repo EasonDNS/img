@@ -16,19 +16,20 @@ const useNavigationStore = defineStore('navigationStore', {
         res.data.forEach((item: INavigationMenuType) => {
           this.navigationMenu.push(item)
         })
-
         return res
       } catch (err) {
         throw err
       }
     },
+    async updateMenuList(list: any) {
+      console.log('updateMenuList')
+      this.$state = list
+    },
     // 更新 某列的ids--------------------------------------------------------------------------------------
     async patchIds(data: any) {
-      console.log(data)
       const id = data.id
       const url = `/${id}`
-      const res = await nAxios.patch<any>(url, data)
-      console.log(res)
+      return await nAxios.patch<any>(url, data)
     },
     async test(data: any) {
       const res = await nAxios.patch('/test', {

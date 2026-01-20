@@ -3,11 +3,14 @@
     <draggable
       v-model="list"
       item-key="id"
-      group="google"
+      grop="grop"
       ghost-class="ghost-class"
       drag-class="drag-class"
       @end="onEnd"
+      @start="onStart"
+      @change="onChange"
       class="label-page"
+      v-bind="draggableOption"
     >
       <template #item="{ element }">
         <label-item :name="element.name" :img-url="String(element.imgUrl)" :url="element.url">
@@ -15,7 +18,9 @@
         </label-item>
       </template>
       <template #footer>
-        <label-item>sina</label-item>
+        <div class="footer" @click="onAdd">
+          <el-icon size="80"><Plus /></el-icon>
+        </div>
       </template>
     </draggable>
   </div>
@@ -28,13 +33,17 @@ import LabelItem from '@/components/LabelItemComponent.vue'
 import {useNavigationStore} from '@/stores'
 import draggable from 'vuedraggable'
 import {localCache} from '@/utils'
-import {nAxios} from '@/services'
 import type {INavigation} from './Type.ts'
 import type {INavigationMenuType} from '@/stores/IStoreType.ts'
+import {nAxios} from '@/services' // import--------------------------------------------------------------------------------------
 // import--------------------------------------------------------------------------------------
 // import--------------------------------------------------------------------------------------
 // onMounted ----------------------------------------------------------------------------------
 const navigationStore = useNavigationStore()
+const draggableOption = ref({
+  animation: 200,
+  disabled: false
+})
 onMounted(async () => {
   // 去后端 更新 菜单
   await navigationStore.getMenuList()
@@ -43,57 +52,49 @@ onMounted(async () => {
   localCache.set('navigationMenuList', navigationStore.navigationMenu)
 })
 let list = ref(navigationStore.navigationMenu)
+let originArray = ref(navigationStore.navigationMenu)
+let newArray = ref(navigationStore.navigationMenu)
+
 // handle------------------------------------------------------------------------------------
-const onEnd = (e: any) => {
-  const origin = localCache.get('navigationMenuList')
-  const newArray = list.value
-  const changeItem = selectItem(origin, newArray)
+const onEnd = async (e: any) => {
+  newArray.value = list.value
+  const changeItem = selectItem(originArray.value, newArray.value)
+  await navigationStore.updateMenuList(list.value)
+  originArray.value = list.value
   console.log('change============>', changeItem)
 
-  executeSql(changeItem)
+  await executeSql(changeItem)
+}
+const onStart = (e: any) => {
+  console.log('start')
+  // console.log(e)
+}
+const onChange = (e: any) => {
+  console.log('change')
+}
+const onAdd = () => {
+  console.log('onAdd')
 }
 // tools--------------------------------------------------------------------------------------
 const executeSql = async (changeItem: INavigation[]) => {
-  const start = changeItem[0]
-  const end = changeItem[1]
-  console.log('=----> start  ')
-  console.log(start)
-  console.log('=========end ')
-  console.log(end)
-
-  const oneRes = await nAxios.patch(`/patch/${start?.id}`, {
-    id: start?.id,
-    ids: 99999,
-    name: start?.name
-  })
-  console.log('-----------------------------one')
-  console.log(oneRes)
-
-  const twoRes = await nAxios.patch(`/patch/${end?.id} `, {
-    id: end?.id,
-    ids: start?.ids,
-    name: end?.name
-  })
-  console.log('--------------------------two')
-  console.log(twoRes)
-  const threeRes = await nAxios.patch(`/patch/${start?.id}`, {
-    id: start?.id,
-    ids: end?.ids,
-    name: start?.name
-  })
-  console.log('-------------------three')
-  console.log(threeRes)
+  for (const item of changeItem) {
+    const res = await nAxios.patch(`/patch/${item.id}`, {
+      id: item.id,
+      ids: item.index + 1,
+      name: item.name
+    })
+  }
   // const res = await nAxios.patch(`/patch/${item.id}`, item.data)
 }
 // 这个函数把改变位置了的item 筛选出来 其实这里应该是要限制一下传入的数组类型 必须要有id,ids, name
-const selectItem = (originArray: INavigation[], newArray: INavigationMenuType[]) => {
-  const changeItem: INavigation[] = []
+const selectItem = (originArray: INavigationMenuType[], newArray: INavigationMenuType[]) => {
+  let changeItem: INavigation[] = []
   originArray.forEach((item, index) => {
     if (item.id != newArray[index]?.id) {
       changeItem.push({
         name: newArray[index]?.name,
-        ids: newArray[index]?.ids || 99999,
-        id: newArray[index]?.id || 99999,
+        ids: newArray[index]?.ids || null,
+        id: newArray[index]!.id,
         index
       })
     }
@@ -120,11 +121,23 @@ const selectItem = (originArray: INavigation[], newArray: INavigationMenuType[])
     //max-width: ;
   }
   .ghost-class {
-    border: 5px solid red;
+    border: 8px solid rgba(16, 16, 16, 0.8);
   }
   .drag-class {
-    border: 5px solid orange;
-    border-radius: 50%;
+    border: 10px solid rgb(139, 17, 17);
+    cursor: move;
+  }
+  .footer {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rebeccapurple;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
   }
 }
 </style>
