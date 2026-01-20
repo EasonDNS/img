@@ -23,12 +23,14 @@
 
 <script lang="ts" setup>
 // import--------------------------------------------------------------------------------------
-import { onMounted, ref } from 'vue'
+import {onMounted, ref} from 'vue'
 import LabelItem from '@/components/LabelItemComponent.vue'
-import { useNavigationStore } from '@/stores'
+import {useNavigationStore} from '@/stores'
 import draggable from 'vuedraggable'
-import { localCache } from '@/utils'
-import { nAxios } from '@/services'
+import {localCache} from '@/utils'
+import {nAxios} from '@/services'
+import type {INavigation} from './Type.ts'
+import type {INavigationMenuType} from '@/stores/IStoreType.ts'
 // import--------------------------------------------------------------------------------------
 // import--------------------------------------------------------------------------------------
 // onMounted ----------------------------------------------------------------------------------
@@ -46,28 +48,52 @@ const onEnd = (e: any) => {
   const origin = localCache.get('navigationMenuList')
   const newArray = list.value
   const changeItem = selectItem(origin, newArray)
-  changeItem.forEach(async (item) => {
-    const res = await nAxios.patch(`/patch/${item.id}`, {
-      id: item.id,
-      ids: item.index,
-      name: item.name
-    })
-  })
+  console.log('change============>', changeItem)
+
+  executeSql(changeItem)
 }
 // tools--------------------------------------------------------------------------------------
+const executeSql = async (changeItem: INavigation[]) => {
+  const start = changeItem[0]
+  const end = changeItem[1]
+  console.log('=----> start  ')
+  console.log(start)
+  console.log('=========end ')
+  console.log(end)
 
-// 这个函数把改变位置了的item 筛选出来
-const selectItem = (originArray: [], newArray: any[]) => {
-  const changeItem: any[] = []
+  const oneRes = await nAxios.patch(`/patch/${start?.id}`, {
+    id: start?.id,
+    ids: 99999,
+    name: start?.name
+  })
+  console.log('-----------------------------one')
+  console.log(oneRes)
+
+  const twoRes = await nAxios.patch(`/patch/${end?.id} `, {
+    id: end?.id,
+    ids: start?.ids,
+    name: end?.name
+  })
+  console.log('--------------------------two')
+  console.log(twoRes)
+  const threeRes = await nAxios.patch(`/patch/${start?.id}`, {
+    id: start?.id,
+    ids: end?.ids,
+    name: start?.name
+  })
+  console.log('-------------------three')
+  console.log(threeRes)
+  // const res = await nAxios.patch(`/patch/${item.id}`, item.data)
+}
+// 这个函数把改变位置了的item 筛选出来 其实这里应该是要限制一下传入的数组类型 必须要有id,ids, name
+const selectItem = (originArray: INavigation[], newArray: INavigationMenuType[]) => {
+  const changeItem: INavigation[] = []
   originArray.forEach((item, index) => {
-    if (item.id != newArray[index].id) {
-      console.log(item.name)
-      console.log(newArray[index].name)
-
+    if (item.id != newArray[index]?.id) {
       changeItem.push({
-        name: newArray[index].name,
-        ids: newArray[index].ids,
-        id: newArray[index].id,
+        name: newArray[index]?.name,
+        ids: newArray[index]?.ids || 99999,
+        id: newArray[index]?.id || 99999,
         index
       })
     }

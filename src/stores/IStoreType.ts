@@ -20,8 +20,8 @@ interface IResponseType {
 interface INavigationMenuType {
   name: string
   url: string
-  id?: number
-  icon?: string
+  id: number
+  imgUrl: string
   category?: string
   CreateAt?: Date
   UpdateAt?: Date
